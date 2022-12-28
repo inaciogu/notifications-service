@@ -7,7 +7,12 @@ export class KafkaConsumerService
   implements OnModuleDestroy
 {
   constructor() {
-    super({});
+    super({
+      client: {
+        clientId: 'notifications',
+        brokers: ['localhost:9092'],
+      },
+    });
   }
 
   async onModuleDestroy() {
